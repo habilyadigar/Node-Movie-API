@@ -99,11 +99,6 @@ router.post('/', (req, res, next)=> {
       res.json(err);
     res.json(data)
   });
-  movie.save((err,data)=>{
-    if(err)
-      res.json(err);
-    res.json(data);
-  });
 /*
   const promise = movie.save();
   promise.then ((data)=>{
