@@ -7,6 +7,10 @@ const mongoose = require('mongoose');
 //config
 const config = require('./config');
 
+//midleware
+const verifyToken = require('./middleware/verify-token')
+
+
 
 const indexRouter = require('./routes/index');
 const movie = require('./routes/movie');
@@ -34,8 +38,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/api',verifyToken);
 app.use('/api/movies', movie);
 app.use('/api/directors', director);
+
+
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) =>{
