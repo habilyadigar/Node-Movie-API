@@ -4,6 +4,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+//config
+const config = require('./config');
 
 
 const indexRouter = require('./routes/index');
@@ -22,6 +24,8 @@ mongoose.connect('mongodb://localhost/Filmoloji')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+//config
+app.set('api_secret_key',config.api_secret_key);
 
 app.use(logger('dev'));
 app.use(express.json());
