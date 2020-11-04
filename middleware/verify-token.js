@@ -12,7 +12,7 @@ module.exports = (req, res, next)=>{
                 })
             }else{
                 req.decode = decode;
-                console.log('Token info:'+decode)
+                //console.log('Token info:'+decode)
                 next();
             }
         });

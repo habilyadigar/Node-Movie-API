@@ -10,7 +10,7 @@ const UserSchema = new Schema({
         maxlength: [20,'`{PATH}` alanı (`{Value}`),({MAXLENGTH} karakterden küçük olmalıdır.)'],
         minlength: [1,'`{PATH}` alanı (`{Value}`),({MINLENGTH} karakterden büyük olmalıdır.)'] 
     },
-    password: {type: String,minlength:4},
+    password: {type: String,minlength:3},
     createdAt: {
         type: Date,
         default: Date.now

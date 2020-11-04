@@ -17,7 +17,7 @@ const movie = require('./routes/movie');
 const director = require('./routes/director');
 
 const app = express();
-mongoose.connect('mongodb://localhost/Filmoloji')
+mongoose.connect('mongodb://localhost/Filmoloji',{useNewUrlParser: true, useUnifiedTopology: true})
   .then(()=>{
     console.log('Mongodb bağlantı sağlandı');
   })
@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/api',verifyToken);
-app.use('/api/movies', movie);
+app.use('/api/movie', movie);
 app.use('/api/directors', director);
 
 

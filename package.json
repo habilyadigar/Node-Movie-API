@@ -2,10 +2,9 @@
   "name": "node-movie-api",
   "version": "0.0.0",
   "private": true,
-
   "scripts": {
     "start": "nodemon ./bin/www",
-    "test": "mocha --exit --recursive"
+    "test": "mocha --exit"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -14,10 +13,10 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
+    "jose": "^2.0.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.11",
     "morgan": "~1.9.1"
-    
   },
   "devDependencies": {
     "chai": "^4.2.0",
