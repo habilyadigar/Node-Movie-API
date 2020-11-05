@@ -1,3 +1,4 @@
+//unit test//
 const chai = require('chai');
 const  chaiHttp = require('chai-http');
 const should = chai.should();
@@ -106,14 +107,25 @@ describe('PUTting director_id', ()=>{
                 res.body.should.have.property('country').eql(movie.country);
                 res.body.should.have.property('year').eql(movie.year);
                 res.body.should.have.property('imdb_score').eql(movie.imdb_score);
-
-                
                 done();
             });
     })
 });
 
-
+describe('DELETEing director_id', ()=>{
+    it('it should DELETE a movie given by id',(done)=>{
+        chai.request(server)
+            .delete('/api/movie/'+ movieId)
+            .set('x-access-token',token)
+            .end((err,res)=>{
+                res.should.have.status(200);
+                res.body.should.be.a('object');
+                res.body.should.have.property('status').eql(1);
+                done();
+            });
+    })
+});
 
 });
 
+//Director route'un testlerini yaz
