@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "test": "mocha --exit"
+    "test": "mocha --exit --recursive "
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -21,6 +21,6 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "mocha": "^8.2.0"
+    "mocha": "^8.2.1"
   }
 }
