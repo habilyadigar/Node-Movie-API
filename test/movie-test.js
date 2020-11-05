@@ -63,7 +63,7 @@ describe('POSTing movies', ()=>{
         })
 });
 
-describe('GETTing Director with id' ,()=>{
+describe('GETTing Movie with id' ,()=>{
     it ('it should GET a movie by the given id',(done) =>{
         chai.request(server)
             .get('/api/movie/'+ movieId)
@@ -84,7 +84,7 @@ describe('GETTing Director with id' ,()=>{
     });
 });
 
-describe('PUTting director_id', ()=>{
+describe('PUTting movie_id', ()=>{
     it('it should UPDATE a movie given by id',(done)=>{
         const movie = {
             title: 'updatedeneme',
@@ -112,7 +112,7 @@ describe('PUTting director_id', ()=>{
     })
 });
 
-describe('DELETEing director_id', ()=>{
+describe('DELETEing movie_id', ()=>{
     it('it should DELETE a movie given by id',(done)=>{
         chai.request(server)
             .delete('/api/movie/'+ movieId)
