@@ -8,8 +8,11 @@ const jwt = require('jsonwebtoken');
 
 const User = require('../models/User');
 
-router.get('/', (req, res, next) => {
-  res.render('index', { title: 'Express' });
+router.get('/home', (req, res, next) => {
+  res.render('home',{ title: "Home" });
+});
+router.get('/login', (req, res, next) => {
+  res.render('login');
 });
 
 router.post('/register', (req, res, next) => {
@@ -56,10 +59,18 @@ router.post('/authenticate', (req, res) => {
               {
                 expiresIn: 720 //dk cinsinden// 12 saat
               });
-            res.json({
-              status: true,
-              token
-            });
+              if(!req.body.app) {
+                res.json({
+                  status: true,
+                  token
+                });
+              } else {
+                req.app.set('api_secret_key',token);
+                res.writeHead(301,
+                  {Location: 'home'}
+                );
+                res.end();
+              }
           }
         });
       }

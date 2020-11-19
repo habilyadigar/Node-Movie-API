@@ -1,0 +1,20 @@
+link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet')
+link(rel="stylesheet", href="/stylesheets/login.css")
+script(src='//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
+script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+// ---- Include the above in your HEAD tag --------
+.wrapper.fadeInDown
+  #formContent
+    // Tabs Titles
+    // Icon
+    .fadeIn.first
+      img#icon(src='/images/login.png' alt='User Icon')
+    // Login Form
+    form(action= "/authenticate" method = "post")
+      input(type='hidden' name='app' value='true')
+      input#login.fadeIn.second(type='text' name='username' placeholder='login')
+      input#password.fadeIn.third(type='text'  name='password' placeholder='password')
+      button.fadeIn.fourth.btn.btn-success(type = 'submit') Log In
+    // Remind Passowrd
+    #formFooter
+      a.underlineHover(href='#') Forgot Password?

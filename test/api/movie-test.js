@@ -2,7 +2,7 @@
 const chai = require('chai');
 const  chaiHttp = require('chai-http');
 const should = chai.should();
-const server = require('../app');
+const server = require('../../app');
 
 chai.use(chaiHttp);
 
@@ -70,7 +70,7 @@ describe('GETTing Movie with id' ,()=>{
             .set('x-access-token',token)
             .end((err,res)=>{
                 res.should.have.status(200);
-                //console.log(res.body);
+                console.log('Movie bölümü:'+res.body);
                 res.body.should.be.a('object')
                 res.body.should.have.property('title');
                 res.body.should.have.property('director_id');
@@ -127,5 +127,3 @@ describe('DELETEing movie_id', ()=>{
 });
 
 });
-
-//Director route'un testlerini yaz
