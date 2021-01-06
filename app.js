@@ -7,11 +7,8 @@ const mongoose = require('mongoose');
 //config
 const config = require('./config');
 
-
-
 //midleware
 const verifyToken = require('./middleware/verify-token')
-
 
 
 const indexRouter = require('./routes/index');
@@ -25,12 +22,13 @@ mongoose.connect('mongodb://localhost/Filmoloji',{useNewUrlParser: true, useUnif
   })
   .catch((err)=>{
     console.log(err+'mongodb bağlantı hatası!!!');
-  });
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 //config
+
 app.set('api_secret_key',config.api_secret_key);
 
 app.use(logger('dev'));
@@ -39,11 +37,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', indexRouter);
 app.use('/api',verifyToken);
 app.use('/api/movie', movie);
 app.use('/api/directors', director);
-
 
 
 

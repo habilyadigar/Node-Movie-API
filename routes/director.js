@@ -23,7 +23,6 @@ router.get('/',(req, res)=>{
         preserveNullAndEmptyArrays: true
       }
     },
-    
     {
       $group: {
         _id:{

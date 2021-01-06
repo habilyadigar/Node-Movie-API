@@ -11,13 +11,13 @@ const User = require('../models/User');
 router.get('/home', (req, res, next) => {
   res.render('home',{ title: "Home" });
 });
+
 router.get('/login', (req, res, next) => {
   res.render('login');
 });
 
 router.post('/register', (req, res, next) => {
   const { username, password } = req.body;
-
   bcrypt.hash(password, 10).then((hash) => {
     const user = new User({
       username,
